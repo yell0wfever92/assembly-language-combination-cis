@@ -8,7 +8,10 @@
 --   r0-r12 = general purpose
 
 -- Main program
-    READ r1             -- Read n into r1
-    READ r2             -- Read k into r2
+    -- Read n from user
+    READ r1             -- r1 = n
+    
+    -- Read k from user
+    READ r2             -- r2 = k
     
     HALT
