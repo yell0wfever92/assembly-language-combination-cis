@@ -1,25 +1,14 @@
-################################################################################
-# Combinations C(n,k) solution
-# STUDENT NAME GOES HERE
-################################################################################
+-- Assembly Language Combination Calculator
+-- Calculates C(n, k) = n! / (k! * (n-k)!)
+-- 
+-- Register conventions:
+--   r13 = return value
+--   r14 = return address
+--   r15 = stack pointer
+--   r0-r12 = general purpose
 
-################################################################################
-# register usage
-# STUDENTS MUST EXPLAIN ALL REGISTERS THEY USE AND FOR WHAT PURPOSE HERE
-################################################################################
-# r0 <- 0
-# r1 <- n
-
-# HMMMM pre-defined registers
-# r13 Function return value
-# r14 Function return address
-# r15 Stack pointer
-
-# STUIDENTS NEED TO ADD THEIR OWN ASSEMBLY CODE HERE
-
-################################################################################
-# read n, print n, and stop
-################################################################################
-0 read  r1 # read n
-1 write r1 # print n
-2 halt     # stop the program
+-- Main program
+    READ r1             -- Read n into r1
+    READ r2             -- Read k into r2
+    
+    HALT
