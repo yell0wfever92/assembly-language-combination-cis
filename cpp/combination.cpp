@@ -1,6 +1,15 @@
 #include <iostream>
 using namespace std;
 
+// Factorial function: calculates x! = x * (x-1) * ... * 2 * 1
+int factorial(int x) {
+    int result = 1;
+    for (int i = 1; i <= x; i++) {
+        result = result * i;
+    }
+    return result;
+}
+
 int main() {
     int n, k;
     
