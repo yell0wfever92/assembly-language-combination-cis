@@ -47,7 +47,24 @@ factorial_done:
 after_n_fact:
     COPY r13 r7
     
+    COPY r6 r1
+    SET r14 after_k_fact
+    JUMP factorial
     
+after_k_fact:
+    COPY r13 r8
+    
+    SUB r5 r6 r1
+    SET r14 after_nk_fact
+    JUMP factorial
+    
+after_nk_fact:
+    COPY r13 r9
+    
+    MUL r8 r9 r10
+    DIV r7 r10 r11
+    
+    WRITE r11
     HALT
     
 error:
