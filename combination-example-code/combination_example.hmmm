@@ -7,29 +7,50 @@
 --   r15 = stack pointer
 --   r0-r12 = general purpose
 
+-- Factorial subroutine
+-- Input: r1 = x
+-- Output: r13 = x!
+factorial:
+    SET r13 1      
+    SET r10 1           
+    
+factorial_loop:
+    CMPLT r10 r1 r11
+    JUMPF r11 factorial_done
+    
+    MUL r13 r10 r13     
+    ADD r10 1 r10       
+    JUMP factorial_loop 
+    
+factorial_done:
+    JUMP r14
+
 -- Main program
-    -- Read n from user
-    READ r1             -- r1 = n
+    READ r5
+    READ r6
     
-    -- Read k from user
-    READ r2             -- r2 = k
+    CMPLT r5 r0 r3
+    CMPLT r6 r0 r4
+    OR r3 r4 r11
+    JUMPT r11 error
     
-    -- Check if n > 0 and k > 0
-    CMPLT r1 r0 r3      
-    CMPLT r2 r0 r4      
-    OR r3 r4 r5         
-    JUMPT r5 error      
+    CMPLT r0 r5 r12
+    JUMPF r12 error
     
-    CMPLT r0 r1 r6      
-    (check if n > 0)
-    JUMPT r6 continue   
+    CMPLT r0 r6 r12
+    JUMPF r12 error
     
-    -- Error case: output -1
-error:
-    WRITE 0             
-    (placeholder)
+    COPY r5 r1
+    SET r14 after_n_fact
+    JUMP factorial
+    
+after_n_fact:
+    COPY r13 r7
+    
+    
     HALT
     
-continue:
-    
+error:
+    SET r13 -1
+    WRITE r13
     HALT
