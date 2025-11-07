@@ -25,7 +25,14 @@ int main() {
         return 0;
     }
     
-    // TODO: Calculate combination
+    // Calculate combination: C(n, k) = n! / (k! * (n-k)!)
+    int n_fact = factorial(n);
+    int k_fact = factorial(k);
+    int nk_fact = factorial(n - k);
+    
+    int combination = n_fact / (k_fact * nk_fact);
+    
+    cout << "Result: " << combination << endl;
     
     return 0;
 }
