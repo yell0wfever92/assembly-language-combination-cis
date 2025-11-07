@@ -4,7 +4,12 @@ using namespace std;
 int main() {
     int n, k;
     
-    // TODO: Get user input
+    // Get user input for n and k
+    cout << "Enter n: ";
+    cin >> n;
+    cout << "Enter k: ";
+    cin >> k;
+    
     // TODO: Validate input
     // TODO: Calculate combination
     
